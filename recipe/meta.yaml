@@ -1,5 +1,5 @@
 {% set name = "molfeat" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/molfeat-{{ version }}.tar.gz
-  sha256: 6226622d54b8836dc7364ae79077c25cda680d667967d986ced3f40909c44c7e
+  sha256: aca93a7988c8ae8121238040dde76958e09d3db26631c50de5c0c208847f0322
 
 build:
   noarch: python
@@ -63,7 +63,7 @@ test:
 
 about:
   home: https://github.com/datamol-io/molfeat
-  summary: "A python library to featurize molecules."
+  summary: A python library to featurize molecules.
   license: Apache-2.0
   license_file: LICENSE
 
