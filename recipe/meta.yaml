@@ -1,5 +1,5 @@
 {% set name = "molfeat" %}
-{% set version = "0.8.8" %}
+{% set version = "0.8.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/molfeat-{{ version }}.tar.gz
-  sha256: b3d27e8fb7e8f46cb07549061a22c4fb9676d998163d6d276bdfa2f6aa4c81ac
+  sha256: 4d8bc42a720abe8386532b266f90b2216e82aa0e2d4dae0ec16db326591ce7ba
 
 build:
   noarch: python
