@@ -39,7 +39,7 @@ requirements:
     - h5py
     - pyarrow
     - matplotlib-base
-    - pydantic
+    - pydantic >=2.0.0
 
     # Chemistry
     - datamol >=0.8.0
@@ -48,7 +48,7 @@ requirements:
     - mordred
 
     # ML
-    - pytorch >=1.10.2
+    - pytorch >=1.12
     - scikit-learn
 
 test:
