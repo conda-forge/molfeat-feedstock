@@ -1,5 +1,5 @@
 {% set name = "molfeat" %}
-{% set version = "0.8.9" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/molfeat-{{ version }}.tar.gz
-  sha256: 4d8bc42a720abe8386532b266f90b2216e82aa0e2d4dae0ec16db326591ce7ba
+  sha256: 31095a94a21b4e811757ae7b5cebc12a77837d4547f829f2b01c2101dbdacae0
 
 build:
   noarch: python
@@ -39,7 +39,7 @@ requirements:
     - h5py
     - pyarrow
     - matplotlib-base
-    - pydantic
+    - pydantic >=2.0.0
 
     # Chemistry
     - datamol >=0.8.0
@@ -48,7 +48,7 @@ requirements:
     - mordred
 
     # ML
-    - pytorch >=1.10.2
+    - pytorch >=1.12
     - scikit-learn
 
 test:
