@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/molfeat-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/molfeat-{{ version }}.tar.gz
   sha256: d033b93bdd025d7e9f0aeec0be038d1a21c76ef6b538d2ce2380d06f45b05bb2
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - setuptools-scm
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - tqdm
     - pyyaml
     - loguru
@@ -53,6 +53,8 @@ requirements:
     - scikit-learn
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - molfeat
   # requires:
