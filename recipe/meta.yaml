@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   host:
@@ -46,7 +46,7 @@ requirements:
     - datamol >=0.8.0
     - rdkit >=2021.09
     - pmapper
-    - mordred
+    - mordredcommunity
 
     # ML
     - pytorch >=1.12
