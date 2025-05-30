@@ -1,5 +1,6 @@
 {% set name = "molfeat" %}
 {% set version = "0.11.0" %}
+{% set python_max = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -21,15 +22,15 @@ requirements:
     - setuptools-scm
     - pip
   run:
-    - python >={{ python_min }}
+    - python >={{ python_min }},<={{ python_max }}
     - tqdm
     - pyyaml
     - loguru
     - joblib
     - filelock
-    - fsspec
-    - s3fs
-    - gcsfs
+    - fsspec >=2021.9
+    - s3fs >=2021.9
+    - gcsfs >=2021.9
     - platformdirs
     - python-dotenv
 
@@ -49,7 +50,7 @@ requirements:
     - mordredcommunity
 
     # ML
-    - pytorch >=1.12
+    - pytorch >=1.13
     - scikit-learn
 
 test:
