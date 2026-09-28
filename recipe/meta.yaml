@@ -1,69 +1,53 @@
 {% set name = "molfeat" %}
-{% set version = "0.11.0" %}
-{% set python_max = "3.10" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/molfeat-{{ version }}.tar.gz
-  sha256: 2ae82a4b4039be19d7863d4e4f088c184c87d406b2b36b132b7b059714c4d537
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/molfeat-{{ version }}.tar.gz
+  sha256: 888c94b3a09e480119950ae4089c6d7a6196bba4264e00985ca6bc1872265ee9
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools
-    - setuptools-scm
+    - setuptools >=77
+    - setuptools-scm >=8
     - pip
   run:
-    - python >={{ python_min }},<={{ python_max }}
-    - tqdm
-    - pyyaml
-    - loguru
-    - joblib
-    - filelock
-    - fsspec >=2021.9
-    - s3fs >=2021.9
-    - gcsfs >=2021.9
-    - platformdirs
-    - python-dotenv
-
-    # Scientific
-    - pandas
-    - numpy
-    - scipy
-    - h5py
-    - pyarrow
-    - matplotlib-base
-    - pydantic >=2.0.0
-
-    # Chemistry
-    - datamol >=0.8.0
-    - rdkit >=2021.09
-    - pmapper
-    - mordredcommunity
-
-    # ML
-    - pytorch >=1.13
-    - scikit-learn
+    - python >={{ python_min }}
+    - tqdm >=4.66
+    - loguru >=0.7
+    - joblib >=1.3
+    - filelock >=3.13
+    - fsspec >=2024.3
+    - aiohttp
+    - platformdirs >=4
+    - pandas >=2.2
+    - numpy >=1.26
+    - scipy >=1.11
+    - pyyaml >=6
+    - pydantic >=2.7
+    - scikit-learn >=1.6
+    - packaging >=23.2
+    - datamol >=0.13.0
+    - rdkit >=2024.9.1
+    - pmapper >=1.1
+    - pytorch >=2.2.2
 
 test:
   requires:
     - python {{ python_min }}
   imports:
     - molfeat
-  # requires:
-  #   - pytest
-  # source_files:
-  #   - tests/
-  # commands:
-  #   - pytest --verbose tests/
+  commands:
+    - python -c "from molfeat.calc import FPCalculator; assert len(FPCalculator('ecfp')('CCO')) == 2048"
 
 about:
   home: https://github.com/datamol-io/molfeat
