@@ -46,12 +46,8 @@ test:
     - python {{ python_min }}
   imports:
     - molfeat
-  # requires:
-  #   - pytest
-  # source_files:
-  #   - tests/
-  # commands:
-  #   - pytest --verbose tests/
+  commands:
+    - python -c "from molfeat.calc import FPCalculator; assert len(FPCalculator('ecfp')('CCO')) == 2048"
 
 about:
   home: https://github.com/datamol-io/molfeat
